@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orderPlats>
+        {% for orderPlat in orderPlats %}
+        <orderPlat id="{{ orderPlat.id }}">
+            <status>{{ orderPlat.status.id }}</status>
+            <name>{{ orderPlat.plat.name }}</name>
+        </orderPlat>
+        {% endfor %} 
+</orderPlats>

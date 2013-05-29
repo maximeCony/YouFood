@@ -1,0 +1,5 @@
+<form action="{{ path('Restaurant_update', { 'idRestaurant': idRestaurant }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input id="RestaurantUpdateFormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+</form>

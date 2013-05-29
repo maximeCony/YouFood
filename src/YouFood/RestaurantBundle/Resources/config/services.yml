@@ -1,0 +1,8 @@
+parameters:
+#    you_food_restaurant.example.class: YouFood\RestaurantBundle\Example
+
+services:
+  my.listener:
+        class: YouFood\RestaurantBundle\Listener\StatusUpdater
+        tags:
+            - { name: doctrine.event_listener, event: postUpdate}

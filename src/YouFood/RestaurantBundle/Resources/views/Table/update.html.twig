@@ -1,0 +1,5 @@
+<form action="{{ path('Table_update', { 'idTable': idTable }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input id="TableUpdateFormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+</form>

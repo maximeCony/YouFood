@@ -1,0 +1,16 @@
+{% extends 'YouFoodRestaurantBundle:Layout:modal.html.twig' %}
+
+{% set id = "yfCreateTable" %}
+
+
+{% block header %}
+    <h3>Add a Table</h3>
+{% endblock %}
+
+{% block body %}
+<form action="{{ path('Table_create', { 'idRestaurant': idRestaurant, 'idZone': idZone }) }}" method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form) }}
+
+        <input id="{{ id }}FormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+</form>
+{% endblock %}

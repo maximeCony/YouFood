@@ -1,0 +1,16 @@
+<script src="{{ asset('js/FormUserManager.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+                
+        var formUserManager = FormUserManager();
+        formUserManager.init();
+                
+    });
+</script>
+
+<form action="{{ path('User_update', { 'idUser': idUser }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input id="UserUpdateFormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+</form>

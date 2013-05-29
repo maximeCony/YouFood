@@ -1,0 +1,58 @@
+{% extends 'YouFoodRestaurantBundle:Layout:modal.html.twig' %}
+
+{% block header %}
+<h3>Update</h3>
+{% endblock %}
+
+{% block body %}
+
+<script type="text/javascript">
+(function() {
+
+    {{id}}Manager = function() {
+
+        return {
+
+            initEvents : function() {
+                $(".yf{{id}}").click(this.getModalContent);
+            },
+
+            getModalContent : function() {
+
+                var path = $(this).attr('path');
+                $('#yf{{id}}Content').html("Chargement...");
+
+                $.ajax({
+                        url: path,
+                        success: function(html) {
+
+                            $('#yf{{id}}Content').html(html);
+                        },
+                        error: function(){
+                            $('#yf{{id}}Content').html('error.');
+                        }
+                    });      
+            }
+        }
+    };
+
+    }());
+
+$(document).ready(function() {
+
+    yf{{id}}Manager = {{id}}Manager();
+    yf{{id}}Manager.initEvents();
+        
+});
+
+    </script>
+
+    <div id="yf{{id}}Content"></div>
+
+{% endblock %}
+
+{% block buttons %}
+    <a href="#" class="btn" onclick="javascript: $('#{{id}}Modal').modal('hide');">Close</a>
+    <a class="btn btn-primary" onclick="javascript: $('#{{ id }}FormSubmit').click();">Update</a>
+{% endblock %}
+

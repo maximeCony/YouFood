@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<restaurants>
+    {% for restaurant in restaurants %}
+    <restaurant id="{{ restaurant.id }}">
+        <name>{{ restaurant.name }}</name>
+        <address>{{ restaurant.address }}</address>
+    </restaurant>
+    {% else %}
+    {% endfor %} 
+</restaurants>

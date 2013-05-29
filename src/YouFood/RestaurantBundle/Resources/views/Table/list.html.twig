@@ -1,0 +1,51 @@
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+
+<h1>Table managment</h1>
+
+<br/>
+
+<a class="btn btn-primary" data-toggle="modal" href="#yfCreateTableModal" >Add a table</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:Table:create" with {'idRestaurant': idRestaurant, 'idZone': idZone} %}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'TableUpdate'} %}
+<table id="yfTableTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for table in tables %}
+            <tr>
+                <td>{{ table.id }}</td>
+                <td>{{ table.name }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('Table_remove', { 'idTable': table.id }) }}">
+                        <i class="icon-trash icon-white"></i> 
+                        Delete
+                    </a>
+                    <a class="btn btn-warning yfTableUpdate" path="{{ path('Table_update', {'idTable': table.id }) }}"
+                           data-toggle="modal" href="#TableUpdateModal">
+                            Update
+                    </a>
+                </td>
+            </tr>
+    {% else %}
+        <tr>
+            <td>No table found</td>
+            <td></td>
+            <td></td>
+        </tr>
+    {% endfor %}
+    </tr>
+</tbody>
+</table>
+
+{% endblock %}

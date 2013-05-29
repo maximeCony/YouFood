@@ -1,0 +1,27 @@
+{% extends 'YouFoodRestaurantBundle:Layout:modal.html.twig' %}
+
+{% set id = "yfCreateUser" %}
+
+
+{% block header %}
+<h3>Add a User</h3>
+{% endblock %}
+
+{% block body %}
+<script src="{{ asset('js/FormUserManager.js') }}" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(document).ready(function() {
+                
+        var formUserManager = FormUserManager();
+        formUserManager.init();
+                
+    });
+</script>
+
+    <form action="{{ path('User_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+            <input id="{{ id }}FormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+        </form>
+{% endblock %}

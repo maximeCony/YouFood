@@ -1,0 +1,17 @@
+YouFoodRestaurantBundle:
+    resource: "@YouFoodRestaurantBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    pattern:   /login
+    defaults:  { _controller: YouFoodRestaurantBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+login_out:
+    pattern:   /logout
+
+login_redirectBasedOnRole:
+    pattern:  /user/redirectBasedOnRole
+    defaults:  { _controller: YouFoodRestaurantBundle:Security:redirect }

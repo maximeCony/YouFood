@@ -1,0 +1,18 @@
+
+<div class="modal fade" id="{{ id }}Modal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        {% block header %}
+            <h3>Modal Title</h3>
+        {% endblock %}
+    </div>
+    <div class="modal-body">
+        {% block body %}{% endblock %}
+    </div>
+    <div class="modal-footer">
+        {% block buttons %}
+            <a href="#" class="btn" onclick="javascript: $('#{{ id }}Modal').modal('hide');">Close</a>
+            <a class="btn btn-primary" onclick="javascript: $('#{{ id }}FormSubmit').click();">Add</a>
+        {% endblock %}
+    </div>
+</div>

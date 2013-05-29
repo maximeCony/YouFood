@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<card>
+    {% for plat in card.plats %}
+    <plat id="{{ plat.id }}">
+        <name>{{ plat.name }}</name>
+        <description>{{ plat.description }}</description>
+        <price>{{ plat.price }}</price>
+    </plat>
+    {% endfor %} 
+</card>

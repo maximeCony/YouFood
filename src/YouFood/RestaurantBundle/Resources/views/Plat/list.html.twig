@@ -1,0 +1,56 @@
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+
+<h1>Plat managment</h1>
+
+<br/>
+
+<a class="btn btn-primary" data-toggle="modal" href="#yfCreatePlatModal" >Add a plat</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:Plat:create" %}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'PlatUpdate'} %}
+<table id="yfRestaurantTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for plat in plats %}
+            <tr>
+                <th>{{ plat.id }}</th>
+                <th>{{ plat.name }}</th>
+                <th>{{ plat.price }}€</th>
+                <th>{{ plat.description|nl2br }}</th>
+                <th>
+                    <a class="btn btn-danger" href="{{ path('Plat_remove', { 'idPlat': plat.id }) }}">
+                        <i class="icon-trash icon-white"></i> 
+                        Delete
+                    </a>
+                    <a class="btn btn-warning yfPlatUpdate" path="{{ path('Plat_update', { 'idPlat': plat.id }) }}"
+                       data-toggle="modal" href="#PlatUpdateModal">
+                        Update
+                    </a>
+                </th>
+            </tr>
+    {% else %}
+            <tr>
+                <td>No plats registred</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,7 @@
+
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+{% render "YouFoodRestaurantBundle:Waiter:list" with {'idRestaurant': idRestaurant} %}
+{% render "YouFoodRestaurantBundle:Zone:list" with {'idRestaurant': idRestaurant} %}    
+{% endblock %}

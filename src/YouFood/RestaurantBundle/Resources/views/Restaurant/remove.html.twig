@@ -1,0 +1,18 @@
+
+{% extends 'YouFoodRestaurantBundle:Layout:modal.html.twig' %}
+
+{% set id = "yfRemoveRestaurant" %}
+
+
+{% block header %}
+    <h3>Warning</h3>
+{% endblock %}
+
+{% block body %}
+   Are you sure you want to remove the restaurant {{restaurant.name }}?
+{% endblock %}
+
+{% block buttons %}
+            <a href="#" class="btn" onclick="javascript: $('#{{ id }}Modal').modal('hide');">Cancel</a>
+            <a class="btn btn-primary" href="{{ path('Restaurant_remove', { 'idRestaurant': restaurant.id }) }}">Remove</a>
+{% endblock %}

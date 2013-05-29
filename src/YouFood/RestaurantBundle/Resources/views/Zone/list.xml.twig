@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zones>
+    {% for zone in zones %}
+    <zone id="{{ zone.id }}">
+        <name>{{ zone.name }}</name>
+    </zone>
+    {% else %}
+    {% endfor %} 
+</zones>

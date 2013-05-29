@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tables>
+    {% for table in tables %}
+    <table id="{{ table.id }}">
+        <name>{{ table.name }}</name>
+    </table>
+    {% else %}
+    {% endfor %} 
+</tables>

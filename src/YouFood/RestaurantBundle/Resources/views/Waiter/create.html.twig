@@ -1,0 +1,16 @@
+{% extends 'YouFoodRestaurantBundle:Layout:modal.html.twig' %}
+
+{% set id = "yfCreateWaiter" %}
+
+
+{% block header %}
+    <h3>Add a Waiter</h3>
+{% endblock %}
+
+{% block body %}
+    <form action="{{ path('Waiter_create', { 'idRestaurant' : idRestaurant} ) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+            <input id="{{ id }}FormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+    </form>
+{% endblock %}

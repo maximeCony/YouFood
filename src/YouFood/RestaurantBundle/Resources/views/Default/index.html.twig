@@ -1,0 +1,82 @@
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+
+<style>
+        body{
+            background: url('{{ asset('images/yfBack.png') }}');
+        }
+
+        #yfPresentation {
+            display: inline;
+            left: 411px;
+            position: absolute;
+            top: 108px;
+            width: 500px;
+        }
+
+        #yfPresContainer{
+            position: relative;
+            margin: auto;
+            width: 960px;
+        }
+    </style>
+
+    <div id="yfPresContainer">
+
+        <h1 style="font-size: 40px;">Welcome to Youfood</h1>
+        <h3 style="color: gray; text-align: right; width: 393px;">YourFood your Mood!</h3>
+
+        <br/>
+        <br/>
+
+        <div class="carousel slide" id="myCarousel" style="width: 364px; margin-left: 17px;">
+            <div class="carousel-inner">
+                <div class="item">
+                    <img alt="" src="{{ asset('images/restaurant_image.jpg') }}">
+                    <div class="carousel-caption">
+                        <h4>First Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item active">
+                    <img alt="" src="{{ asset('images/restaurant_image2.jpg') }}">
+                    <div class="carousel-caption">
+                        <h4>Second Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img alt="" src="{{ asset('images/restaurant_image3.jpg') }}">
+                    <div class="carousel-caption">
+                        <h4>Third Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+                <div class="item">
+                    <img alt="" src="{{ asset('images/restaurant_image4.jpg') }}">
+                    <div class="carousel-caption">
+                        <h4>Third Thumbnail label</h4>
+                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                    </div>
+                </div>
+            </div>
+            <a data-slide="prev" href="#myCarousel" class="left carousel-control">‹</a>
+            <a data-slide="next" href="#myCarousel" class="right carousel-control">›</a>
+        </div>
+
+        <div id="yfPresentation">
+            <span>
+                <b style="font-size: 23px;">Youfood</b>  is a sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset. 
+                <br/>Quod si qui longius in amicitia provecti essent, tamen saepe labefactari, si in honoris contentionem incidissent; pestem enim nullam maiorem esse amicitiis quam in plerisque pecuniae cupiditatem, in optimis quibusque honoris certamen et gloriae; ex quo inimicitias maximas saepe inter amicissimos exstitisse.
+                <br/><br/>
+                <br/><b style="font-size: 23px;">Nam quibusdam,</b> quos audio sapientes habitos in Graecia, 
+                <br/>placuisse opinor mirabilia quaedam (sed nihil est quod illi non persequantur argutiis): partim fugiendas esse nimias amicitias, ne necesse sit unum sollicitum esse pro pluribus; 
+                <br/>satis superque esse sibi suarum cuique rerum, alienis nimis implicari molestum esse; commodissimum esse quam laxissimas habenas habere amicitiae, quas vel adducas, cum velis, vel remittas; 
+                <br/>caput enim esse ad beate vivendum securitatem, qua frui non possit animus, si tamquam parturiat unus pro pluribus.
+            </span>
+        </div>
+        <br/>
+        <h1>Talienis nimis implicari molestum esse</h1>
+    </div>
+{% endblock %}

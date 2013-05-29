@@ -1,0 +1,198 @@
+YouFoodRestaurantBundle_homepage:
+    pattern:  /
+    defaults: { _controller: YouFoodRestaurantBundle:Default:index }
+
+####################
+
+User_list:
+    pattern:  /user/list
+    defaults: { _controller: YouFoodRestaurantBundle:User:list }
+
+User_update:
+    pattern:  /user/{idUser}/update
+    defaults: { _controller: YouFoodRestaurantBundle:User:update }
+
+User_remove:
+    pattern:  /user/{idUser}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:User:remove }
+
+User_create:
+    pattern:  /user/create
+    defaults: { _controller: YouFoodRestaurantBundle:User:create }
+
+####################
+
+Restaurant_create:
+    pattern:  restaurant/create
+    defaults: { _controller: YouFoodRestaurantBundle:Restaurant:create }
+
+Restaurant_update:
+    pattern:  restaurant/{idRestaurant}/update
+    defaults: { _controller: YouFoodRestaurantBundle:Restaurant:update }
+
+Restaurant_list:
+    pattern:  restaurant/list.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Restaurant:list, _format: html }
+    requirements:
+      _format:  html|xml
+
+Restaurant_manage:
+    pattern:  restaurant/{idRestaurant}/manage
+    defaults: { _controller: YouFoodRestaurantBundle:Restaurant:manage }
+
+Restaurant_remove:
+    pattern:  restaurant/{idRestaurant}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:Restaurant:remove }
+
+####################
+
+Zone_create:
+    pattern:  restaurant/{idRestaurant}/zone/create
+    defaults: { _controller: YouFoodRestaurantBundle:Zone:create }
+
+Zone_update:
+    pattern:  zone/{idZone}/update
+    defaults: { _controller: YouFoodRestaurantBundle:Zone:update }
+
+Zone_remove:
+    pattern:  restaurant/{idRestaurant}/zone/{idZone}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:Zone:remove }
+
+Zone_list:
+    pattern:  restaurant/{idRestaurant}/zone/list.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Zone:list, _format: html }
+    requirements:
+      _format:  html|xml
+
+####################
+
+Waiter_create:
+    pattern:  restaurant/{idRestaurant}/waiter/create
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:create }
+
+Waiter_update:
+    pattern:  waiter/{idWaiter}/update
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:update }
+
+Waiter_remove:
+    pattern:  restaurant/{idRestaurant}/waiter/{idWaiter}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:remove }
+
+Waiter_list:
+    pattern:  restaurant/{idRestaurant}/waiter/list.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:list, _format: html }
+    requirements:
+      _format:  html|xml
+
+Waiter_todo:
+    pattern:  waiter/{idWaiter}/todo.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:todo, _format: xml }
+    requirements:
+      _format:  xml
+
+Waiter_call:
+    pattern:  table/{idTable}/call
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:call }
+
+Waiter_removeCall:
+    pattern:  table/{idTable}/waiter/{idWaiter}/removeCall
+    defaults: { _controller: YouFoodRestaurantBundle:Waiter:removeCall }
+
+####################
+
+Table_create:
+    pattern:  restaurant/{idRestaurant}/zone/{idZone}/table/create
+    defaults: { _controller: YouFoodRestaurantBundle:Table:create }
+
+Table_update:
+    pattern:  table/{idTable}/update
+    defaults: { _controller: YouFoodRestaurantBundle:Table:update }
+
+Table_remove:
+    pattern:  table/{idTable}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:Table:remove }
+
+Table_list:
+    pattern:  restaurant/{idRestaurant}/zone/{idZone}/table/list.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Table:list, _format: html }
+    requirements:
+      _format:  html|xml
+
+####################
+
+Table_create:
+    pattern:  restaurant/{idRestaurant}/zone/{idZone}/table/create
+    defaults: { _controller: YouFoodRestaurantBundle:Table:create }
+
+Table_list:
+    pattern:  restaurant/{idRestaurant}/zone/{idZone}/table/list.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Table:list, _format: html }
+    requirements:
+      _format:  html|xml
+
+####################
+
+Plat_create:
+    pattern:  plat/create
+    defaults: { _controller: YouFoodRestaurantBundle:Plat:create }
+
+Plat_update:
+    pattern:  plat/{idPlat}/update
+    defaults: { _controller: YouFoodRestaurantBundle:Plat:update }
+
+Plat_remove:
+    pattern:  plat/{idPlat}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:Plat:remove }
+
+Plat_list:
+    pattern:  plat/list.{_format}
+    defaults: { _controller: YouFoodRestaurantBundle:Plat:list, _format: html }
+    requirements:
+      _format: xml|html
+
+####################
+
+Card_create:
+    pattern:  card/create
+    defaults: { _controller: YouFoodRestaurantBundle:Card:create }
+
+Card_list:
+    pattern:  card/list
+    defaults: { _controller: YouFoodRestaurantBundle:Card:list }
+
+Card_current:
+    pattern:  card/current.xml
+    defaults: { _controller: YouFoodRestaurantBundle:Card:current }
+
+Card_setCurrent:
+    pattern:  card/{idCard}/setCurrent
+    defaults: { _controller: YouFoodRestaurantBundle:Card:setCurrent }
+
+Card_remove:
+    pattern:  card/{idCard}/remove
+    defaults: { _controller: YouFoodRestaurantBundle:Card:remove }
+
+Card_update:
+    pattern:  card/{idCard}/update
+    defaults: { _controller: YouFoodRestaurantBundle:Card:update }
+
+####################
+
+Order_create:
+    pattern:  table/{idTable}/order/create
+    defaults: { _controller: YouFoodRestaurantBundle:Order:create }
+
+Order_listOrdered:
+    pattern:  restaurant/{idRestaurant}/order/listOrdered.xml
+    defaults: { _controller: YouFoodRestaurantBundle:Order:listOrdered}
+
+####################
+
+OrderPlat_prepared:
+    pattern:  orderPlat/{idOrderPlat}/prepared
+    defaults: { _controller: YouFoodRestaurantBundle:Order:orderPlatPrepared }
+
+OrderPlat_served:
+    pattern:  orderPlat/{idOrderPlat}/served
+    defaults: { _controller: YouFoodRestaurantBundle:Order:orderPlatServed }
+

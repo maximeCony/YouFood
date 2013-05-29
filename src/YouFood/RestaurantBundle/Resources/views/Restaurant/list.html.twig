@@ -1,0 +1,58 @@
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+
+<h1>Restaurant managment</h1>
+
+<br/>
+
+<a class="btn btn-primary" data-toggle="modal" href="#yfCreateRestaurantModal" >Add a restaurant</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:Restaurant:create" %}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'RestaurantUpdate'} %}
+<table id="yfRestaurantTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for restaurant in restaurants %}
+        <tr>
+            <td>{{ restaurant.id }}</td>
+            <td>{{ restaurant.name }}</td>
+            <td>{{ restaurant.address }}</td>
+            <td>
+                
+                 <a href="{{ path('Restaurant_manage', { 'idRestaurant': restaurant.id }) }}">
+                   <div class="btn" value=""/><i class="icon-cog"></i> Manage</div>
+                </a>
+                <a class="btn btn-danger" href="{{ path('Restaurant_remove', { 'idRestaurant': restaurant.id }) }}">
+                    <i class="icon-trash icon-white"></i>
+                        Delete
+                </a>
+                 <a class="btn btn-warning yfRestaurantUpdate" path="{{ path('Restaurant_update', { 'idRestaurant': restaurant.id }) }}"
+                           data-toggle="modal" href="#RestaurantUpdateModal">
+                            Update
+                </a>
+            </td>
+        </tr>
+    {% else %}
+        <tr>
+            <td>No restaurant registred</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

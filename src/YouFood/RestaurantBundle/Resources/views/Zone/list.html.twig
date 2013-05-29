@@ -1,0 +1,57 @@
+<h1>Zone managment</h1>
+
+<br/>
+
+<a class="btn btn-primary" data-toggle="modal" href="#yfCreateZoneModal" >Add a zone</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:Zone:create" with {'idRestaurant': idRestaurant} %}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'ZoneUpdate'} %}
+<table id="yfZoneTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Waiter</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for zone in zones %}
+            <tr>
+                <td>{{ zone.id }}</td>
+                <td>{{ zone.name }}</td>
+                {% if zone.waiter %}
+                <td>{{ zone.waiter.name }}</td>
+                {% else %}
+                <td style="font-style: italic; color: gray;">Unset</td>
+                {% endif %}
+                <td>
+                    
+                    <a class="btn" href="{{ path('Table_list', { 'idRestaurant': idRestaurant, 'idZone': zone.id }) }}">
+                        <i class="icon-cog"></i>
+                        Manage Tables
+                    </a>
+                    <a class="btn btn-danger" href="{{ path('Zone_remove', { 'idRestaurant': idRestaurant, 'idZone': zone.id }) }}">
+                        <i class="icon-trash icon-white"></i> 
+                        Delete
+                    </a>
+                    <a class="btn btn-warning yfZoneUpdate" path="{{ path('Zone_update', { 'idRestaurant': idRestaurant, 'idZone': zone.id }) }}"
+                           data-toggle="modal" href="#ZoneUpdateModal">
+                            Update
+                    </a>
+                </td>
+            </tr>
+    {% else %}
+        <tr>
+            <td>No zone found</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    {% endfor %}
+    </tr>
+</tbody>
+</table>

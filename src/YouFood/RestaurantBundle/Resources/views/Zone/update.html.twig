@@ -1,0 +1,5 @@
+<form action="{{ path('Zone_update', { 'idZone': idZone }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input id="ZoneUpdateFormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+</form>

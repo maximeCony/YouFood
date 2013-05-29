@@ -1,0 +1,5 @@
+<form action="{{ path('Waiter_update', { 'idWaiter': idWaiter }) }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <input id="WaiterUpdateFormSubmit" class="btn btn-primary" type="submit" style="display: none;"/>
+</form>

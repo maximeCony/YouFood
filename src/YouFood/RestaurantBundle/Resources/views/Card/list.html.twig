@@ -1,0 +1,71 @@
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+
+<h1>Card managment</h1>
+
+<br/>
+
+<a class="btn btn-primary" data-toggle="modal" href="#yfCreateCardModal" >Add a card</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:Card:create" %}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'CardUpdate'} %}
+<table id="yfCardTable" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th style="width: 15%"></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for card in cards %}
+            <tr class="majorTr">
+                <td style="width: 5%;">{{ card.id }}</td>
+                <td>{{ card.name }}</td>
+                <td>
+                    {% if card.current != 1 %}
+                        <a href="{{ path('Card_setCurrent', { 'idCard': card.id }) }}">
+                            <div class="btn" value=""/>Set as current</div>
+                        </a>
+                    {% else %}
+                        <a style="cursor: default;" class="btn btn-success"><i class="icon-ok icon-white"></i> Current</a>
+                    {% endif %}
+                        <br/>
+                        <a class="btn btn-warning yfCardUpdate" path="{{ path('Card_update', { 'idCard': card.id }) }}"
+                           data-toggle="modal" href="#CardUpdateModal">
+                            Update
+                        </a>
+                        <br/>
+                        <a class="btn btn-danger" href="{{ path('Card_remove', { 'idCard': card.id }) }}">
+                            <i class="icon-trash icon-white"></i> 
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+        {% for plat in card.plats %}
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <li style="margin-left: 20px;">{{ plat.name }}</li>
+                    </td>
+    </tr>
+        {% endfor %}
+
+    {% else %}
+    <tr>
+        <td>No card registred</td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    {% endfor %}
+</tr>
+</tbody>
+</table>
+
+{% endblock %}

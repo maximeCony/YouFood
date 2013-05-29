@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<waiters>
+    {% for waiter in waiters %}
+    <waiter id="{{ waiter.id }}">
+        <name>{{ waiter.name }}</name>
+    </waiter>
+    {% else %}
+    {% endfor %} 
+</waiters>

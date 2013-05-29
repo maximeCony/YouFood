@@ -1,0 +1,64 @@
+{% extends 'YouFoodRestaurantBundle:Layout:main.html.twig' %}
+
+{% block body %}
+
+<h1>User managment</h1>
+
+<br/>
+
+<a id="yf_addUser" class="btn btn-primary" data-toggle="modal" href="#yfCreateUserModal" >Add a user</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:User:create"%}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'UserUpdate'} %}
+<table id="yfUserTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>User Name</th>
+            <th>Role</th>
+            <th>Restaurant</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>
+                    {% for group in user.groups %}
+                        {{ group.name }}
+                    {% endfor %}
+                </td>
+                 <td>
+                    {% if user.restaurant != null %}
+                         {{ user.restaurant.name }}
+                    {% endif %}
+                </td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('User_remove', { 'idUser': user.id }) }}">
+                        <i class="icon-trash icon-white"></i> 
+                        Delete
+                    </a>
+                    <a class="btn btn-warning yfUserUpdate" path="{{ path('User_update', { 'idUser': user.id }) }}"
+                           data-toggle="modal" href="#UserUpdateModal">
+                            Update
+                    </a>
+                </td>
+            </tr>
+    {% else %}
+        <tr>
+            <td>No user found</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

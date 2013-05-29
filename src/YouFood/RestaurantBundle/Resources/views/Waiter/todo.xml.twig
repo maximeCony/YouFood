@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<todos>
+    {% for order in orders %}
+    <order id='{{ order.id }}'  status="{{ order.status.id }}">
+        <table id='{{ order.table.id }}'>
+            <tableName>{{ order.table.name }}</tableName>
+        </table>
+        <plats>
+            {% for orderPlat in order.orderplats %}
+                {% if orderPlat.status.id == 2 %}
+                <plat id="{{ orderPlat.plat.id }}" status="{{ orderPlat.status.id }}" orderPlatId="{{ orderPlat.id }}">
+                    <platName>{{ orderPlat.plat.name }}</platName>
+                </plat>
+                {% endif %}
+            {% endfor %} 
+        </plats>
+    </order>    
+    {% endfor %}
+    
+    {% if callWaiters %}
+    <callWaiter>
+    {% for callWaiter in callWaiters %}
+        <callingTable id="{{ callWaiter.table.id }}">{{ callWaiter.table.name }}</callingTable>
+    {% endfor %}
+    </callWaiter>
+    {% endif %}
+</todos>

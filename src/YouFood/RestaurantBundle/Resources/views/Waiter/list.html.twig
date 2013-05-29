@@ -1,0 +1,45 @@
+<h1>Waiter management</h1>
+
+<br/>
+
+<a class="btn btn-primary" data-toggle="modal" href="#yfCreateWaiterModal" >Add a waiter</a>
+
+<br/>
+<br/>
+
+{% render "YouFoodRestaurantBundle:Waiter:create" with {'idRestaurant': idRestaurant} %}
+{% include "YouFoodRestaurantBundle:Layout:updateModal.html.twig" with {'id': 'WaiterUpdate'} %}
+<table id="yfWaiterTable" class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for waiter in waiters %}
+            <tr>
+                <td>{{ waiter.id }}</td>
+                <td>{{ waiter.name }}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ path('Waiter_remove', { 'idRestaurant': idRestaurant, 'idWaiter': waiter.id }) }}">
+                        <i class="icon-trash icon-white"></i> 
+                        Delete
+                    </a>
+                    <a class="btn btn-warning yfWaiterUpdate" path="{{ path('Waiter_update', { 'idRestaurant': idRestaurant, 'idWaiter': waiter.id }) }}"
+                           data-toggle="modal" href="#WaiterUpdateModal">
+                            Update
+                    </a>
+                </td>
+            </tr>
+    {% else %}
+        <tr>
+            <td>No waiter found</td>
+            <td></td>
+            <td></td>
+        </tr>
+    {% endfor %}
+    </tr>
+</tbody>
+</table>
