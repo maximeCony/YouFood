@@ -10,6 +10,9 @@ use YouFood\RestaurantBundle\Form\CardType;
 
 class CardController extends Controller {
 
+    /*
+    * Create Card
+    */
     public function createAction(Request $request) {
         
         $card = new Card();

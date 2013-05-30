@@ -12,6 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class CardRepository extends EntityRepository {
 
+	/*
+	* Set the card as offline
+	*/
     public function setCardOffline() {
 
         $query = $this->createQueryBuilder('card')

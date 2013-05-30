@@ -10,6 +10,9 @@ class StatusUpdater {
         $entity = $args->getEntity();
         $em = $args->getEntityManager();
 
+        /*
+        * If an instance of the OrderPlat entity has been modified
+        */
         if ($entity instanceof \YouFood\RestaurantBundle\Entity\OrderPlat) {
 
             $order = $entity->getOrder();

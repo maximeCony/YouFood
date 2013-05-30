@@ -11,6 +11,9 @@ use Doctrine\ORM\NoResultException;
 
 class UserRepository extends EntityRepository implements UserProviderInterface
 {
+    /*
+    * Get User by username
+    */
     public function loadUserByUsername($username)
     {
         $q = $this
@@ -23,8 +26,6 @@ class UserRepository extends EntityRepository implements UserProviderInterface
             ->getQuery();
 
         try {
-            // The Query::getSingleResult() method throws an exception
-            // if there is no record matching the criteria.
             $user = $q->getSingleResult();
         } catch (NoResultException $e) {
             throw new UsernameNotFoundException(sprintf('Unable to find an active admin YouFoodRestaurantBundle:User object identified by "%s".', $username), null, 0, $e);
@@ -33,6 +34,9 @@ class UserRepository extends EntityRepository implements UserProviderInterface
         return $user;
     }
 
+    /*
+    * Get User
+    */
     public function refreshUser(UserInterface $user)
     {
         $class = get_class($user);
